@@ -18,6 +18,9 @@
             padding: 10px 0;
             text-align: center;
         }
+        h1.titulo-audio-radar {
+            color: white; /* Garantir que o título h1 seja branco */
+        }
         .container {
             max-width: 900px;
             margin: 0 auto;
@@ -56,98 +59,92 @@
     <p><em>By Leandro Rupestre</em></p>
 </header>
 
-<style>
-    .titulo-audio-radar {
-        color: white; /* Define a cor branca somente para esse h1 */
-    }
-</style>
+<div class="container">
+    <h2>Demonstração</h2>
+    <p>Veja o AudioRadar em ação no jogo: <a href="https://youtu.be/dUyLhsrh7MA" target="_blank">https://youtu.be/dUyLhsrh7MA</a></p>
 
-    <div class="container">
-        <h2>Demonstração</h2>
-        <p>Veja o AudioRadar em ação no jogo: <a href="https://youtu.be/dUyLhsrh7MA" target="_blank">https://youtu.be/dUyLhsrh7MA</a></p>
+    <h2 class="section-title">Instalação Passo a Passo</h2>
 
-        <h2 class="section-title">Instalação Passo a Passo</h2>
-
-        <div class="step">
-            <h3>1. Baixe os arquivos necessários</h3>
-            <ul>
-                <li>Baixe o instalador AudioRadar: <a href="https://github.com/rupestre10/AudioRadar/releases/tag/v1.0" target="_blank">AudioRadar v1.0</a></li>
-                <li>Baixe também o <code>VBCABLE.zip</code> no site oficial: <a href="https://vb-audio.com/Cable/" target="_blank">https://vb-audio.com/Cable/</a></li>
-            </ul>
-        </div>
-
-        <div class="step">
-            <h3>2. Instale o VB-Cable</h3>
-            <ol>
-                <li>Extraia o arquivo <code>VBCABLE.zip</code></li>
-                <li>Execute o instalador da versão x64 do VB-Cable</li>
-                <li>Reinicie o computador após a instalação</li>
-            </ol>
-        </div>
-
-        <div class="step">
-            <h3>3. Verifique os dispositivos de som</h3>
-            <p>Após instalar o VB-Cable, o sistema pode alterar os dispositivos de áudio padrão.</p>
-        </div>
-
-        <div class="step">
-            <h3>4. Acesse as configurações de som do Windows</h3>
-            <p>Pressione <code>Win + R</code>, digite <code>mmsys.cpl</code> e pressione Enter:</p>
-            <img src="https://github.com/user-attachments/assets/1fe9e4b1-b14b-4bc0-b796-d270485fe00b" alt="Captura de tela das configurações de som" />
-            <p>Na aba <strong>Reprodução</strong>, verifique se <strong>CABLE Input</strong> está na lista:</p>
-            <img src="https://github.com/user-attachments/assets/c59da4aa-09f4-49b7-ba7c-2e12394dfb6a" alt="Configuração de CABLE Input" />
-            <p>Na aba <strong>Gravação</strong>, verifique se <strong>CABLE Output</strong> está na lista:</p>
-            <img src="https://github.com/user-attachments/assets/c64f8c23-dbd8-4e3d-bc30-bc46a5e01289" alt="Configuração de CABLE Output" />
-        </div>
-
-        <div class="step">
-            <h3>5. Configure corretamente os dispositivos</h3>
-            <h4>CABLE Input</h4>
-            <ul>
-                <li>Clique com o botão direito → <strong>Configurar alto-falantes</strong> → selecione <strong>7.1 Surround</strong> → avance até o final sem alterar mais nada.</li>
-                <li>Vá em <strong>Propriedades</strong> → aba <strong>Avançado</strong> → selecione: <strong>24 bits, 48000 Hz (Qualidade de Estúdio)</strong></li>
-            </ul>
-            <img src="https://github.com/user-attachments/assets/0a55225c-194e-4201-86d6-45a1bd6b75d9" alt="Configuração de CABLE Input" />
-            <h4>CABLE Output</h4>
-            <ul>
-                <li>Vá em <strong>Propriedades</strong> → aba <strong>Avançado</strong> → selecione: <strong>8 canais, 24 bits, 48000 Hz (Qualidade de Estúdio)</strong></li>
-            </ul>
-            <img src="https://github.com/user-attachments/assets/82df3918-b648-4d24-9a2a-46af414fd167" alt="Configuração de CABLE Output" />
-        </div>
-
-        <div class="step">
-            <h3>6. Instale o AudioRadar</h3>
-            <ul>
-                <li>Execute o instalador <code>AudioRadar_v1.0_Setup.exe</code></li>
-                <li>A interface do radar será exibida</li>
-                <li>O ícone do programa ficará visível na <strong>bandeja do sistema</strong> (parte inferior direita da tela, perto do relógio)</li>
-            </ul>
-            <img src="https://github.com/user-attachments/assets/b243b04e-5333-42ed-aacf-6b7cd8564053" alt="Ícone do AudioRadar na bandeja do sistema" />
-        </div>
-
-        <div class="step">
-            <h3>7. Acesse as configurações do AudioRadar</h3>
-            <p>Você pode abrir as configurações de duas formas:</p>
-            <ul>
-                <li>Clique com o botão direito no ícone do programa na bandeja</li>
-                <li>Escolha a opção <strong>Opções</strong></li>
-            </ul>
-            <img src="https://github.com/user-attachments/assets/171f09d9-7424-458d-b2c7-0a0b79a6739c" alt="Configurações do AudioRadar" />
-        </div>
-
-        <div class="step">
-            <h3>8. Use com seus jogos ou aplicativos</h3>
-            <ol>
-                <li>Abra o jogo ou programa que deseja usar com o AudioRadar</li>
-                <li>Coloque o jogo em <strong>modo Janela sem bordas (Borderless)</strong></li>
-                <li>Reinicie o jogo ou aplicativo após essas mudanças</li>
-            </ol>
-            <img src="https://github.com/user-attachments/assets/7fbc0d2d-13c4-4827-b896-f4cee3383735" alt="Modo Borderless do jogo" />
-        </div>
-
-        <h2 class="section-title">Pronto!</h2>
-        <p>O AudioRadar agora processa o som e mostra a interface de radar com base no áudio captado em tempo real.</p>
+    <div class="step">
+        <h3>1. Baixe os arquivos necessários</h3>
+        <ul>
+            <li>Baixe o instalador AudioRadar: <a href="https://github.com/rupestre10/AudioRadar/releases/tag/v1.0" target="_blank">AudioRadar v1.0</a></li>
+            <li>Baixe também o <code>VBCABLE.zip</code> no site oficial: <a href="https://vb-audio.com/Cable/" target="_blank">https://vb-audio.com/Cable/</a></li>
+        </ul>
     </div>
+
+    <div class="step">
+        <h3>2. Instale o VB-Cable</h3>
+        <ol>
+            <li>Extraia o arquivo <code>VBCABLE.zip</code></li>
+            <li>Execute o instalador da versão x64 do VB-Cable</li>
+            <li>Reinicie o computador após a instalação</li>
+        </ol>
+    </div>
+
+    <div class="step">
+        <h3>3. Verifique os dispositivos de som</h3>
+        <p>Após instalar o VB-Cable, o sistema pode alterar os dispositivos de áudio padrão.</p>
+    </div>
+
+    <div class="step">
+        <h3>4. Acesse as configurações de som do Windows</h3>
+        <p>Pressione <code>Win + R</code>, digite <code>mmsys.cpl</code> e pressione Enter:</p>
+        <img src="https://github.com/user-attachments/assets/1fe9e4b1-b14b-4bc0-b796-d270485fe00b" alt="Captura de tela das configurações de som" />
+        <p>Na aba <strong>Reprodução</strong>, verifique se <strong>CABLE Input</strong> está na lista:</p>
+        <img src="https://github.com/user-attachments/assets/c59da4aa-09f4-49b7-ba7c-2e12394dfb6a" alt="Configuração de CABLE Input" />
+        <p>Na aba <strong>Gravação</strong>, verifique se <strong>CABLE Output</strong> está na lista:</p>
+        <img src="https://github.com/user-attachments/assets/c64f8c23-dbd8-4e3d-bc30-bc46a5e01289" alt="Configuração de CABLE Output" />
+    </div>
+
+    <div class="step">
+        <h3>5. Configure corretamente os dispositivos</h3>
+        <h4>CABLE Input</h4>
+        <ul>
+            <li>Clique com o botão direito → <strong>Configurar alto-falantes</strong> → selecione <strong>7.1 Surround</strong> → avance até o final sem alterar mais nada.</li>
+            <li>Vá em <strong>Propriedades</strong> → aba <strong>Avançado</strong> → selecione: <strong>24 bits, 48000 Hz (Qualidade de Estúdio)</strong></li>
+        </ul>
+        <img src="https://github.com/user-attachments/assets/0a55225c-194e-4201-86d6-45a1bd6b75d9" alt="Configuração de CABLE Input" />
+        <h4>CABLE Output</h4>
+        <ul>
+            <li>Vá em <strong>Propriedades</strong> → aba <strong>Avançado</strong> → selecione: <strong>8 canais, 24 bits, 48000 Hz (Qualidade de Estúdio)</strong></li>
+        </ul>
+        <img src="https://github.com/user-attachments/assets/82df3918-b648-4d24-9a2a-46af414fd167" alt="Configuração de CABLE Output" />
+    </div>
+
+    <div class="step">
+        <h3>6. Instale o AudioRadar</h3>
+        <ul>
+            <li>Execute o instalador <code>AudioRadar_v1.0_Setup.exe</code></li>
+            <li>A interface do radar será exibida</li>
+            <li>O ícone do programa ficará visível na <strong>bandeja do sistema</strong> (parte inferior direita da tela, perto do relógio)</li>
+        </ul>
+        <img src="https://github.com/user-attachments/assets/b243b04e-5333-42ed-aacf-6b7cd8564053" alt="Ícone do AudioRadar na bandeja do sistema" />
+    </div>
+
+    <div class="step">
+        <h3>7. Acesse as configurações do AudioRadar</h3>
+        <p>Você pode abrir as configurações de duas formas:</p>
+        <ul>
+            <li>Clique com o botão direito no ícone do programa na bandeja</li>
+            <li>Escolha a opção <strong>Opções</strong></li>
+        </ul>
+        <img src="https://github.com/user-attachments/assets/171f09d9-7424-458d-b2c7-0a0b79a6739c" alt="Configurações do AudioRadar" />
+    </div>
+
+    <div class="step">
+        <h3>8. Use com seus jogos ou aplicativos</h3>
+        <ol>
+            <li>Abra o jogo ou programa que deseja usar com o AudioRadar</li>
+            <li>Coloque o jogo em <strong>modo Janela sem bordas (Borderless)</strong></li>
+            <li>Reinicie o jogo ou aplicativo após essas mudanças</li>
+        </ol>
+        <img src="https://github.com/user-attachments/assets/7fbc0d2d-13c4-4827-b896-f4cee3383735" alt="Modo Borderless do jogo" />
+    </div>
+
+    <h2 class="section-title">Pronto!</h2>
+    <p>O AudioRadar agora processa o som e mostra a interface de radar com base no áudio captado em tempo real.</p>
+</div>
 
 </body>
 </html>
