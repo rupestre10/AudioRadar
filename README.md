@@ -18,7 +18,7 @@ https://youtu.be/dUyLhsrh7MA
 
 ### 1. Baixe os arquivos necessários
 
-- Baixe o instalador AudioRadar
+- Baixe o instalador AudioRadar https://github.com/rupestre10/AudioRadar/releases/tag/v1.0
 - Baixe também o `VBCABLE.zip` no site oficial:  
   https://vb-audio.com/Cable/
 
