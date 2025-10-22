@@ -3,8 +3,7 @@
 
 
 
-**By Leandro Rupestre**  
-Contato: leandro.rupestre@gmail.com
+**By Leandro Rupestre**
 
 ---
 
