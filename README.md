@@ -72,7 +72,7 @@ Após instalar o VB-Cable, o sistema pode alterar os dispositivos de áudio padr
 
 ### 6. Instale o AudioRadar
 
-- Execute o instalador `AudioRadar.exe`
+- Execute o instalador `AudioRadar_v1.0_Setup.exe`
 - A interface do radar será exibida
 - O ícone do programa ficará visível na **bandeja do sistema** (parte inferior direita da tela, perto do relógio)
 <img width="324" height="157" alt="Captura de tela 2025-10-21 232321" src="https://github.com/user-attachments/assets/b243b04e-5333-42ed-aacf-6b7cd8564053" />
