@@ -1,5 +1,6 @@
 # AudioRadar – Tutorial de Instalação
-<img width="200" height="200" alt="audioradar original imagem" src="https://github.com/user-attachments/assets/347c7e45-f878-4b54-8b87-bdf4a94c2d34" />
+<img width="198" height="197" alt="Captura de tela 2025-10-21 230933" src="https://github.com/user-attachments/assets/40d03043-ae1b-42ad-8c80-0dba1efd9c35" />
+
 
 
 **By Leandro Rupestre**  
