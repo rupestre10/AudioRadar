@@ -15,7 +15,7 @@
         header {
             background-color: #333;
             color: white;
-            padding: 10px 0;
+            padding: 10px 0 20px 0; /* Aumentei o padding inferior */
             text-align: center;
         }
         h1.titulo-audio-radar {
@@ -49,6 +49,34 @@
         .step {
             margin-bottom: 20px;
         }
+
+        /* --- ESTILOS PARA OS BOTÕES --- */
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            margin: 10px 5px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-download {
+            background-color: #28a745; /* Verde */
+        }
+
+        .btn-github {
+            background-color: #555; /* Cinza um pouco mais claro */
+        }
+
+        .btn:hover {
+            opacity: 0.85; /* Efeito ao passar o mouse */
+        }
+        /* --- FIM DOS ESTILOS --- */
+
     </style>
 </head>
 <body>
@@ -57,19 +85,34 @@
     <h1 class="titulo-audio-radar">AudioRadar – Tutorial de Instalação</h1>
     <img src="https://github.com/user-attachments/assets/40d03043-ae1b-42ad-8c80-0dba1efd9c35" />
     <p><em>By Leandro Rupestre</em></p>
-</header>
+
+    <div>
+        <a class="btn btn-download" 
+           href="https://github.com/rupestre10/AudioRadar/releases/tag/v1.0" 
+           target="_blank">
+           Baixar AudioRadar v1.0
+        </a>
+
+        <a class="btn btn-github" 
+           href="https://github.com/rupestre10/AudioRadar" 
+           target="_blank">
+           Contribuir no GitHub
+        </a>
+    </div>
+    </header>
 
 <div class="container">
     <h2>Demonstração</h2>
     <p>Veja o AudioRadar em ação no jogo: <a href="https://youtu.be/dUyLhsrh7MA" target="_blank">https://youtu.be/dUyLhsrh7MA</a></p>
     <p>Tutorial em Libras: <a href="https://youtu.be/BvsF-NM40nU" target="_blank">https://youtu.be/BvsF-NM40nU</a></p>
 
+
     <h2 class="section-title">Instalação Passo a Passo</h2>
 
     <div class="step">
         <h3>1. Baixe os arquivos necessários</h3>
         <ul>
-            <li>Baixe o instalador AudioRadar: <a href="https://github.com/rupestre10/AudioRadar/releases/tag/v1.0" target="_blank">AudioRadar v1.0</a></li>
+            <li>Baixe o instalador AudioRadar v1.0</li>
             <li>Baixe também o <code>VBCABLE.zip</code> no site oficial: <a href="https://vb-audio.com/Cable/" target="_blank">https://vb-audio.com/Cable/</a></li>
         </ul>
     </div>
