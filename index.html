@@ -3,192 +3,916 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AudioRadar v1.0</title>
+    <title>AudioRadar v1.0 - Acessibilidade para Jogos</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            box-sizing: border-box;
         }
+
+        :root {
+            --primary-color: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary-color: #8b5cf6;
+            --accent-color: #ec4899;
+            --success-color: #10b981;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
         header {
-            background-color: #333;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             color: white;
-            padding: 10px 0 20px 0; /* Aumentei o padding inferior */
+            padding: 2rem 1rem;
             text-align: center;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
         }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,197.3C1248,203,1344,149,1392,122.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
         h1.titulo-audio-radar {
-            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            letter-spacing: -0.5px;
         }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        img {
-            max-width: 100%;
+
+        .header-logo {
+            max-width: 300px;
             height: auto;
-        }
-        h1, h2 {
-            color: #333;
-        }
-        p, ul {
-            font-size: 16px;
-            color: #555;
-        }
-        a {
-            color: #0066cc;
-            text-decoration: none;
-        }
-        .section-title {
-            font-size: 1.2em;
-            color: #444;
-            margin-top: 30px;
-        }
-        .step {
-            margin-bottom: 20px;
+            margin: 1rem auto;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+            display: block;
         }
 
-        /* --- ESTILOS PARA OS BOTÕES --- */
+        .header-author {
+            margin-top: 1rem;
+            font-style: italic;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
         .btn {
-            display: inline-block;
-            padding: 12px 20px;
-            margin: 10px 5px;
-            font-size: 16px;
-            font-weight: bold;
-            text-align: center;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            font-size: 1rem;
+            font-weight: 600;
             text-decoration: none;
             color: white;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-download {
-            background-color: #28a745; /* Verde */
-        }
-
-        .btn-github {
-            background-color: #555; /* Cinza um pouco mais claro */
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+            border: 2px solid transparent;
         }
 
         .btn:hover {
-            opacity: 0.85; /* Efeito ao passar o mouse */
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
         }
-        /* --- FIM DOS ESTILOS --- */
 
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-download {
+            background: linear-gradient(135deg, var(--success-color) 0%, #059669 100%);
+        }
+
+        .btn-download:hover {
+            background: linear-gradient(135deg, #059669 0%, var(--success-color) 100%);
+        }
+
+        .btn-github {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-github:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-icon {
+            font-size: 1.2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .tabs {
+            background: var(--bg-white);
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .tabs-nav {
+            display: flex;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .tabs-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab-button {
+            flex: 1;
+            min-width: 150px;
+            padding: 1.25rem 1.5rem;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .tab-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .tab-button.active {
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: inset 0 -3px 0 white;
+        }
+
+        .tab-button .icon {
+            font-size: 1.3rem;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 2rem;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .video-section {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-left: 5px solid #f59e0b;
+        }
+
+        .video-section h2 {
+            color: #92400e;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.75rem;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .video-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .video-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .video-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .video-card p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .video-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            color: white;
+            background: linear-gradient(135deg, #FF0000 0%, #CC0000 100%);
+            font-weight: 600;
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-md);
+            margin-top: 1rem;
+            width: 100%;
+            font-size: 1.1rem;
+        }
+
+        .video-link:hover {
+            background: linear-gradient(135deg, #CC0000 0%, #990000 100%);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        h2 {
+            color: var(--text-dark);
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        h3 {
+            color: var(--text-dark);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        h4 {
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .step {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateX(4px);
+        }
+
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-right: 0.75rem;
+            vertical-align: middle;
+        }
+
+        .step h3 {
+            display: inline-block;
+            margin-bottom: 1rem;
+            vertical-align: middle;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1rem 0;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+
+        p, ul, ol {
+            color: var(--text-dark);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        ul, ol {
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+            line-height: 1.8;
+        }
+
+        code {
+            background: var(--bg-light);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: var(--accent-color);
+            border: 1px solid var(--border-color);
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            color: var(--text-dark);
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .accessibility-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .icon-large {
+            font-size: 2rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            h1.titulo-audio-radar {
+                font-size: 2rem;
+            }
+
+            .tabs-nav {
+                flex-direction: column;
+            }
+
+            .tab-button {
+                min-width: 100%;
+            }
+
+            .tab-content {
+                padding: 1.5rem;
+            }
+
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .container {
+                margin: 1rem auto;
+            }
+        }
+
+        /* Melhorias de acessibilidade visual */
+        .visual-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            vertical-align: middle;
+        }
+
+        .indicator-primary {
+            background: var(--primary-color);
+        }
+
+        .indicator-success {
+            background: var(--success-color);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .success-box {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            border-left: 4px solid var(--success-color);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .success-box h2 {
+            color: #065f46;
+            margin-bottom: 0.5rem;
+        }
+
+        .success-box p {
+            color: #047857;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1 class="titulo-audio-radar">AudioRadar v1.0</h1>
-    <img src="https://github.com/user-attachments/assets/40d03043-ae1b-42ad-8c80-0dba1efd9c35" />
-    <p><em>By Leandro Rupestre</em></p>
+    <div class="header-content">
+        <h1 class="titulo-audio-radar">🎯 AudioRadar v1.0</h1>
+        <img src="https://github.com/user-attachments/assets/40d03043-ae1b-42ad-8c80-0dba1efd9c35" 
+             alt="Logo do AudioRadar - Radar de som para jogos" 
+             class="header-logo" />
+        <p class="header-author">Por Leandro Rupestre</p>
+        <span class="accessibility-badge">
+            <span class="icon">🦻</span> Site acessível para surdos
+        </span>
 
-    <div>
-        <a class="btn btn-download" 
-           href="https://github.com/rupestre10/AudioRadar/releases/tag/v1.0.1" 
-           target="_blank">
-           Baixar AudioRadar v1.0
-        </a>
+        <div class="header-buttons">
+            <a class="btn btn-download" 
+               href="https://github.com/rupestre10/AudioRadar/releases/tag/v1.0.1" 
+               target="_blank"
+               aria-label="Baixar AudioRadar versão 1.0">
+                <span class="btn-icon">⬇️</span>
+                Baixar AudioRadar v1.0
+            </a>
 
-        <a class="btn btn-github" 
-           href="https://github.com/rupestre10/AudioRadar" 
-           target="_blank">
-           Contribuir no GitHub
-        </a>
+            <a class="btn btn-github" 
+               href="https://github.com/rupestre10/AudioRadar" 
+               target="_blank"
+               aria-label="Ver código fonte no GitHub">
+                <span class="btn-icon">💻</span>
+                Contribuir no GitHub
+            </a>
+        </div>
     </div>
-    </header>
+</header>
 
 <div class="container">
-    <h2>Demonstração</h2>
-    <p>Veja o AudioRadar em ação no jogo: <a href="https://youtu.be/dUyLhsrh7MA" target="_blank">https://youtu.be/dUyLhsrh7MA</a></p>
-    <p>Tutorial em Libras: <a href="https://youtu.be/BvsF-NM40nU" target="_blank">https://youtu.be/BvsF-NM40nU</a></p>
+    <div class="tabs">
+        <nav class="tabs-nav" role="tablist" aria-label="Navegação principal">
+            <button class="tab-button active" 
+                    role="tab" 
+                    aria-selected="true" 
+                    aria-controls="tab-inicio"
+                    id="tab-button-inicio"
+                    onclick="openTab('inicio')">
+                <span class="icon">🏠</span>
+                Início
+            </button>
+            <button class="tab-button" 
+                    role="tab" 
+                    aria-selected="false" 
+                    aria-controls="tab-videos"
+                    id="tab-button-videos"
+                    onclick="openTab('videos')">
+                <span class="icon">🎬</span>
+                Vídeos em Libras
+            </button>
+            <button class="tab-button" 
+                    role="tab" 
+                    aria-selected="false" 
+                    aria-controls="tab-instalacao"
+                    id="tab-button-instalacao"
+                    onclick="openTab('instalacao')">
+                <span class="icon">⚙️</span>
+                Instalação
+            </button>
+        </nav>
 
+        <!-- Aba Início -->
+        <div id="tab-inicio" class="tab-content active" role="tabpanel" aria-labelledby="tab-button-inicio">
+            <h2>🎮 Bem-vindo ao AudioRadar</h2>
+            <p style="font-size: 1.1rem; color: var(--text-light); margin-bottom: 2rem;">
+                Um radar de som 7.1 canais em tempo real para jogos, focado em <strong>acessibilidade</strong> e 
+                inclusão para jogadores surdos.
+            </p>
 
-    <h2 class="section-title">Instalação Passo a Passo</h2>
+            <div class="video-section">
+                <h2>
+                    <span class="icon-large">👋</span>
+                    Demonstrações e Tutoriais
+                </h2>
+                <p style="font-size: 1.05rem; color: #78350f; margin-bottom: 1rem;">
+                    Assista aos vídeos abaixo para ver o AudioRadar em ação e aprender como usá-lo.
+                </p>
+                <div class="video-grid">
+                    <div class="video-card">
+                        <h3>
+                            <span class="visual-indicator indicator-primary"></span>
+                            Demonstração no Jogo
+                        </h3>
+                        <p>Veja o AudioRadar funcionando em tempo real durante uma partida.</p>
+                        <a href="https://youtu.be/dUyLhsrh7MA" 
+                           target="_blank" 
+                           class="video-link"
+                           aria-label="Assistir demonstração do AudioRadar no jogo">
+                            ▶️ Assistir Vídeo
+                        </a>
+                    </div>
+                    <div class="video-card">
+                        <h3>
+                            <span class="visual-indicator indicator-success"></span>
+                            Tutorial em Libras
+                        </h3>
+                        <p>Guia completo em Libras (Língua Brasileira de Sinais) para instalação e uso do AudioRadar.</p>
+                        <a href="https://youtu.be/BvsF-NM40nU" 
+                           target="_blank" 
+                           class="video-link"
+                           aria-label="Assistir tutorial em Libras do AudioRadar">
+                            ▶️ Assistir Tutorial em Libras
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-    <div class="step">
-        <h3>1. Baixe os arquivos necessários</h3>
-        <ul>
-            <li>Baixe o instalador AudioRadar v1.0</li>
-            <li>Baixe também o <code>VBCABLE.zip</code> no site oficial: <a href="https://vb-audio.com/Cable/" target="_blank">https://vb-audio.com/Cable/</a></li>
-        </ul>
+            <div class="highlight-box">
+                <h3 style="margin-top: 0; color: #92400e;">
+                    <span class="icon">💡</span> O que é o AudioRadar?
+                </h3>
+                <p style="color: #78350f;">
+                    O AudioRadar transforma informações de áudio espacial em indicadores visuais, permitindo que 
+                    jogadores surdos percebam a direção e intensidade dos sons do jogo 
+                    através de um radar visual moderno e intuitivo.
+                </p>
+            </div>
+
+            <h3 style="margin-top: 2rem;">
+                <span class="icon">⭐</span> Recursos Principais
+            </h3>
+            <ul style="list-style: none; padding-left: 0;">
+                <li style="margin-bottom: 0.75rem;">
+                    <span class="visual-indicator indicator-primary"></span>
+                    <strong>Suporte 7.1 Surround:</strong> Detecta sons em todas as direções
+                </li>
+                <li style="margin-bottom: 0.75rem;">
+                    <span class="visual-indicator indicator-primary"></span>
+                    <strong>Interface Visual Intuitiva:</strong> Indicadores claros e fáceis de entender
+                </li>
+                <li style="margin-bottom: 0.75rem;">
+                    <span class="visual-indicator indicator-primary"></span>
+                    <strong>Alta Qualidade:</strong> Processamento de áudio em 24 bits, 48000 Hz
+                </li>
+                <li style="margin-bottom: 0.75rem;">
+                    <span class="visual-indicator indicator-primary"></span>
+                    <strong>Compatível com Jogos:</strong> Funciona com qualquer jogo que suporte modo Borderless
+                </li>
+            </ul>
+        </div>
+
+        <!-- Aba Vídeos em Libras -->
+        <div id="tab-videos" class="tab-content" role="tabpanel" aria-labelledby="tab-button-videos">
+            <h2>
+                <span class="icon-large">👋</span>
+                Vídeos Instrucionais em Libras
+            </h2>
+            <p style="font-size: 1.1rem; color: var(--text-light); margin-bottom: 2rem;">
+                Esta seção contém tutoriais completos em <strong>Libras (Língua Brasileira de Sinais)</strong> 
+                para facilitar o aprendizado e uso do AudioRadar pela comunidade surda.
+            </p>
+
+            <div class="video-section">
+                <h2 style="color: #92400e;">
+                    <span class="icon-large">🎥</span>
+                    Tutoriais Disponíveis
+                </h2>
+                
+                <div class="video-grid">
+                    <div class="video-card">
+                        <h3>
+                            <span class="visual-indicator indicator-success"></span>
+                            Tutorial Completo em Libras
+                        </h3>
+                        <p>
+                            Aprenda como instalar, configurar e usar o AudioRadar com este tutorial completo 
+                            traduzido para Libras. Ideal para quem prefere aprender visualmente.
+                        </p>
+                        <a href="https://youtu.be/BvsF-NM40nU" 
+                           target="_blank" 
+                           class="video-link"
+                           aria-label="Assistir tutorial em Libras do AudioRadar no YouTube">
+                            <span style="font-size: 1.5rem; margin-right: 0.5rem;">▶️</span>
+                            Assistir Tutorial em Libras no YouTube
+                        </a>
+                    </div>
+
+                    <div class="video-card">
+                        <h3>
+                            <span class="visual-indicator indicator-primary"></span>
+                            Demonstração em Tempo Real
+                        </h3>
+                        <p>
+                            Veja o AudioRadar em ação durante uma partida real. Observe como os indicadores 
+                            visuais respondem aos sons do jogo.
+                        </p>
+                        <a href="https://youtu.be/dUyLhsrh7MA" 
+                           target="_blank" 
+                           class="video-link"
+                           aria-label="Assistir demonstração do AudioRadar no jogo no YouTube">
+                            <span style="font-size: 1.5rem; margin-right: 0.5rem;">▶️</span>
+                            Assistir Demonstração no YouTube
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h3 style="margin-top: 0; color: #92400e;">
+                    <span class="icon">ℹ️</span> Sobre os Vídeos em Libras
+                </h3>
+                <p style="color: #78350f;">
+                    Nossos tutoriais em Libras foram criados pensando na acessibilidade e inclusão. 
+                    Todos os passos de instalação e configuração estão disponíveis em Libras, tornando 
+                    o AudioRadar acessível para toda a comunidade surda brasileira.
+                </p>
+            </div>
+
+            <div style="background: var(--bg-light); border-radius: 12px; padding: 1.5rem; margin-top: 2rem;">
+                <h3 style="color: var(--primary-color); margin-top: 0;">
+                    <span class="icon">💬</span> Precisa de Mais Ajuda?
+                </h3>
+                <p>
+                    Se você tiver dúvidas ou precisar de suporte adicional, visite a 
+                    <a href="https://github.com/rupestre10/AudioRadar" target="_blank">página do projeto no GitHub</a> 
+                    ou confira a aba de <strong>Instalação</strong> para um guia passo a passo detalhado.
+                </p>
+            </div>
+        </div>
+
+        <!-- Aba Instalação -->
+        <div id="tab-instalacao" class="tab-content" role="tabpanel" aria-labelledby="tab-button-instalacao">
+            <h2>
+                <span class="icon-large">⚙️</span>
+                Guia de Instalação Passo a Passo
+            </h2>
+            <p style="font-size: 1.1rem; color: var(--text-light); margin-bottom: 2rem;">
+                Siga estes passos detalhados para instalar e configurar o AudioRadar no seu computador.
+            </p>
+
+            <div class="step">
+                <h3>
+                    <span class="step-number">1</span>
+                    Baixe os arquivos necessários
+                </h3>
+                <ul>
+                    <li>Baixe o instalador AudioRadar v1.0 usando o botão acima</li>
+                    <li>Baixe também o <code>VBCABLE.zip</code> no site oficial: 
+                        <a href="https://vb-audio.com/Cable/" target="_blank">https://vb-audio.com/Cable/</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3>
+                    <span class="step-number">2</span>
+                    Instale o VB-Cable
+                </h3>
+                <ol>
+                    <li>Extraia o arquivo <code>VBCABLE.zip</code></li>
+                    <li>Execute o instalador da versão x64 do VB-Cable</li>
+                    <li><strong>Importante:</strong> Reinicie o computador após a instalação</li>
+                </ol>
+            </div>
+
+            <div class="step">
+                <h3>
+                    <span class="step-number">3</span>
+                    Verifique os dispositivos de som
+                </h3>
+                <p>Após instalar o VB-Cable e reiniciar, o sistema pode alterar os dispositivos de áudio padrão. 
+                   Verifique se tudo está funcionando corretamente.</p>
+            </div>
+
+            <div class="step">
+                <h3>
+                    <span class="step-number">4</span>
+                    Acesse as configurações de som do Windows
+                </h3>
+                <p>Pressione <code>Win + R</code>, digite <code>mmsys.cpl</code> e pressione Enter:</p>
+                <img src="https://github.com/user-attachments/assets/1fe9e4b1-b14b-4bc0-b796-d270485fe00b" 
+                     alt="Captura de tela das configurações de som do Windows" />
+                <p>Na aba <strong>Reprodução</strong>, verifique se <strong>CABLE Input</strong> está na lista:</p>
+                <img src="https://github.com/user-attachments/assets/c59da4aa-09f4-49b7-ba7c-2e12394dfb6a" 
+                     alt="Configuração de CABLE Input na aba Reprodução" />
+                <p>Na aba <strong>Gravação</strong>, verifique se <strong>CABLE Output</strong> está na lista:</p>
+                <img src="https://github.com/user-attachments/assets/c64f8c23-dbd8-4e3d-bc30-bc46a5e01289" 
+                     alt="Configuração de CABLE Output na aba Gravação" />
+            </div>
+
+            <div class="step">
+                <h3>
+                    <span class="step-number">5</span>
+                    Configure corretamente os dispositivos
+                </h3>
+                <h4>CABLE Input</h4>
+                <ul>
+                    <li>Clique com o botão direito → <strong>Configurar alto-falantes</strong> → selecione <strong>7.1 Surround</strong> → avance até o final sem alterar mais nada.</li>
+                    <li>Vá em <strong>Propriedades</strong> → aba <strong>Avançado</strong> → selecione: <strong>24 bits, 48000 Hz (Qualidade de Estúdio)</strong></li>
+                </ul>
+                <img src="https://github.com/user-attachments/assets/0a55225c-194e-4201-86d6-4a1bd6b75d9" 
+                     alt="Configuração avançada de CABLE Input com 24 bits e 48000 Hz" />
+                <h4>CABLE Output</h4>
+                <ul>
+                    <li>Vá em <strong>Propriedades</strong> → aba <strong>Avançado</strong> → selecione: <strong>8 canais, 24 bits, 48000 Hz (Qualidade de Estúdio)</strong></li>
+                </ul>
+                <img src="https://github.com/user-attachments/assets/82df3918-b648-4d24-9a2a-46af414fd167" 
+                     alt="Configuração avançada de CABLE Output com 8 canais, 24 bits e 48000 Hz" />
+            </div>
+
+            <div class="step">
+                <h3>
+                    <span class="step-number">6</span>
+                    Instale o AudioRadar
+                </h3>
+                <ul>
+                    <li>Execute o instalador <code>AudioRadar_v1.0_Setup.exe</code></li>
+                    <li>A interface do radar será exibida</li>
+                    <li>O ícone do programa ficará visível na <strong>bandeja do sistema</strong> (parte inferior direita da tela, perto do relógio)</li>
+                </ul>
+                <img src="https://github.com/user-attachments/assets/b243b04e-5333-42ed-aacf-6b7cd8564053" 
+                     alt="Ícone do AudioRadar visível na bandeja do sistema do Windows" />
+            </div>
+
+            <div class="step">
+                <h3>
+                    <span class="step-number">7</span>
+                    Acesse as configurações do AudioRadar
+                </h3>
+                <p>Você pode abrir as configurações de duas formas:</p>
+                <ul>
+                    <li>Clique com o botão direito no ícone do programa na bandeja</li>
+                    <li>Escolha a opção <strong>Opções</strong></li>
+                </ul>
+                <img src="https://github.com/user-attachments/assets/171f09d9-7424-458d-b2c7-0a0b79a6739c" 
+                     alt="Menu de configurações do AudioRadar acessível pelo botão direito" />
+            </div>
+
+            <div class="step">
+                <h3>
+                    <span class="step-number">8</span>
+                    Use com seus jogos ou aplicativos
+                </h3>
+                <ol>
+                    <li>Abra o jogo ou programa que deseja usar com o AudioRadar</li>
+                    <li>Coloque o jogo em <strong>modo Janela sem bordas (Borderless)</strong></li>
+                    <li>Reinicie o jogo ou aplicativo após essas mudanças</li>
+                </ol>
+                <img src="https://github.com/user-attachments/assets/7fbc0d2d-13c4-4827-b896-f4cee3383735" 
+                     alt="Exemplo de jogo configurado em modo Borderless para uso com AudioRadar" />
+            </div>
+
+            <div class="success-box">
+                <h2>
+                    <span class="icon-large">✅</span>
+                    Pronto!
+                </h2>
+                <p>
+                    O AudioRadar agora processa o som e mostra a interface de radar com base no áudio captado em tempo real. 
+                    Você está pronto para jogar com acessibilidade visual completa!
+                </p>
+            </div>
+        </div>
     </div>
-
-    <div class="step">
-        <h3>2. Instale o VB-Cable</h3>
-        <ol>
-            <li>Extraia o arquivo <code>VBCABLE.zip</code></li>
-            <li>Execute o instalador da versão x64 do VB-Cable</li>
-            <li>Reinicie o computador após a instalação</li>
-        </ol>
-    </div>
-
-    <div class="step">
-        <h3>3. Verifique os dispositivos de som</h3>
-        <p>Após instalar o VB-Cable, o sistema pode alterar os dispositivos de áudio padrão.</p>
-    </div>
-
-    <div class="step">
-        <h3>4. Acesse as configurações de som do Windows</h3>
-        <p>Pressione <code>Win + R</code>, digite <code>mmsys.cpl</code> e pressione Enter:</p>
-        <img src="https://github.com/user-attachments/assets/1fe9e4b1-b14b-4bc0-b796-d270485fe00b" alt="Captura de tela das configurações de som" />
-        <p>Na aba <strong>Reprodução</strong>, verifique se <strong>CABLE Input</strong> está na lista:</p>
-        <img src="https://github.com/user-attachments/assets/c59da4aa-09f4-49b7-ba7c-2e12394dfb6a" alt="Configuração de CABLE Input" />
-        <p>Na aba <strong>Gravação</strong>, verifique se <strong>CABLE Output</strong> está na lista:</p>
-        <img src="https://github.com/user-attachments/assets/c64f8c23-dbd8-4e3d-bc30-bc46a5e01289" alt="Configuração de CABLE Output" />
-    </div>
-
-    <div class="step">
-        <h3>5. Configure corretamente os dispositivos</h3>
-        <h4>CABLE Input</h4>
-        <ul>
-            <li>Clique com o botão direito → <strong>Configurar alto-falantes</strong> → selecione <strong>7.1 Surround</strong> → avance até o final sem alterar mais nada.</li>
-            <li>Vá em <strong>Propriedades</strong> → aba <strong>Avançado</strong> → selecione: <strong>24 bits, 48000 Hz (Qualidade de Estúdio)</strong></li>
-        </ul>
-        <img src="https://github.com/user-attachments/assets/0a55225c-194e-4201-86d6-45a1bd6b75d9" alt="Configuração de CABLE Input" />
-        <h4>CABLE Output</h4>
-        <ul>
-            <li>Vá em <strong>Propriedades</strong> → aba <strong>Avançado</strong> → selecione: <strong>8 canais, 24 bits, 48000 Hz (Qualidade de Estúdio)</strong></li>
-        </ul>
-        <img src="https://github.com/user-attachments/assets/82df3918-b648-4d24-9a2a-46af414fd167" alt="Configuração de CABLE Output" />
-    </div>
-
-    <div class="step">
-        <h3>6. Instale o AudioRadar</h3>
-        <ul>
-            <li>Execute o instalador <code>AudioRadar_v1.0_Setup.exe</code></li>
-            <li>A interface do radar será exibida</li>
-            <li>O ícone do programa ficará visível na <strong>bandeja do sistema</strong> (parte inferior direita da tela, perto do relógio)</li>
-        </ul>
-        <img src="https://github.com/user-attachments/assets/b243b04e-5333-42ed-aacf-6b7cd8564053" alt="Ícone do AudioRadar na bandeja do sistema" />
-    </div>
-
-    <div class="step">
-        <h3>7. Acesse as configurações do AudioRadar</h3>
-        <p>Você pode abrir as configurações de duas formas:</p>
-        <ul>
-            <li>Clique com o botão direito no ícone do programa na bandeja</li>
-            <li>Escolha a opção <strong>Opções</strong></li>
-        </ul>
-        <img src="https://github.com/user-attachments/assets/171f09d9-7424-458d-b2c7-0a0b79a6739c" alt="Configurações do AudioRadar" />
-    </div>
-
-    <div class="step">
-        <h3>8. Use com seus jogos ou aplicativos</h3>
-        <ol>
-            <li>Abra o jogo ou programa que deseja usar com o AudioRadar</li>
-            <li>Coloque o jogo em <strong>modo Janela sem bordas (Borderless)</strong></li>
-            <li>Reinicie o jogo ou aplicativo após essas mudanças</li>
-        </ol>
-        <img src="https://github.com/user-attachments/assets/7fbc0d2d-13c4-4827-b896-f4cee3383735" alt="Modo Borderless do jogo" />
-    </div>
-
-    <h2 class="section-title">Pronto!</h2>
-    <p>O AudioRadar agora processa o som e mostra a interface de radar com base no áudio captado em tempo real.</p>
 </div>
+
+<script>
+    function openTab(tabName) {
+        // Esconde todas as abas
+        var tabs = document.getElementsByClassName('tab-content');
+        for (var i = 0; i < tabs.length; i++) {
+            tabs[i].classList.remove('active');
+            tabs[i].setAttribute('aria-hidden', 'true');
+        }
+
+        // Remove active de todos os botões
+        var buttons = document.getElementsByClassName('tab-button');
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove('active');
+            buttons[i].setAttribute('aria-selected', 'false');
+        }
+
+        // Mostra a aba selecionada
+        document.getElementById('tab-' + tabName).classList.add('active');
+        document.getElementById('tab-' + tabName).setAttribute('aria-hidden', 'false');
+
+        // Ativa o botão correspondente
+        document.getElementById('tab-button-' + tabName).classList.add('active');
+        document.getElementById('tab-button-' + tabName).setAttribute('aria-selected', 'true');
+
+        // Rola para o topo das abas
+        document.querySelector('.tabs').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Suporte para navegação por teclado
+    document.addEventListener('keydown', function(e) {
+        var activeButton = document.querySelector('.tab-button.active');
+        if (!activeButton) return;
+
+        var buttons = Array.from(document.querySelectorAll('.tab-button'));
+        var currentIndex = buttons.indexOf(activeButton);
+
+        if (e.key === 'ArrowLeft' && currentIndex > 0) {
+            e.preventDefault();
+            buttons[currentIndex - 1].click();
+        } else if (e.key === 'ArrowRight' && currentIndex < buttons.length - 1) {
+            e.preventDefault();
+            buttons[currentIndex + 1].click();
+        }
+    });
+</script>
 
 </body>
 </html>
